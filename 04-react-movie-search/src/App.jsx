@@ -1,11 +1,15 @@
 import { useState } from 'react'
 import './dark.css'
 import './App.css'
+import { ShowMovies } from './components/Movies.jsx'
+import responseMovies from './mocks/with-results.json'
+import notResponseMovies from './mocks/not-found.json'  
 
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const movies = responseMovies.Search
+  
 
   return (
     <div className='page'>
@@ -14,12 +18,13 @@ function App() {
         <form className='form'>
           <label> Put the name of the movie here
           <input placeholder='Avengers, Lord of the Rings, Cars...'></input>
+          <button type='submit'> Search </button>
           </label>
         </form>
       </header>
 
       <main>
-        <button type='submit'> Search </button>
+        <ShowMovies movies={movies}/>
       </main>
        
     </div>
