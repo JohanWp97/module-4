@@ -1,4 +1,4 @@
-import './dark.css'
+/* import './dark.css' */
 import './App.css'
 import { useEffect, useState, useRef } from 'react'
 import { ShowMovies } from './components/Movies.jsx' 
@@ -33,12 +33,12 @@ function useSearch(){
 }
 
 function App() {
-  const { movies } = useMovies()
   const { search, updateSearch, error } = useSearch()
+  const { movies, getMovies } = useMovies({ search })
   
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log({ search })
+    getMovies()
   }
 
   const handleChange = (event) => {
@@ -51,7 +51,7 @@ function App() {
         <h1> Movies Search </h1>
         <form className='form' onSubmit={handleSubmit}>
           <label> Put the name of the movie here
-          <input style={{
+          <input className='text-box' style={{
             border: '1px solid transparent', borderColor: error ? 'red' : 'transparent' //para estilizar el input desde html
           }} onChange={handleChange} value={search} name='query' placeholder='Avengers, Lord of the Rings, Cars...'></input>
           <button type='submit'> Search </button>

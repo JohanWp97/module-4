@@ -17,7 +17,7 @@
 - Show an input to search the movie and one button to search. 🆗
 - Movies list and the page shows Title, year and poster. 🆗
 - Form works 🆗
-- Do the fetching of data
+- Do the fetching of data 🆗
 
 ## First iteration
 
